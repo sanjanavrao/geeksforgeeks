@@ -1,0 +1,14 @@
+
+arr=[int(x) for x in input().strip().split()]
+N=int(input('Enter the length of the array'))
+K=int(input())
+i=0
+while(i<N):
+    l=i
+    r=min(i+K-1,N-1) //to check if the index is less than the lenght of the array or not
+    while(l<r):
+        arr[l],arr[r]=arr[r],arr[l] //to swap the elements
+        l+=1
+        r-=1
+    i+=K
+print(arr)
