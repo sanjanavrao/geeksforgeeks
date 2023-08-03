@@ -1,0 +1,30 @@
+'''Given string s, the task is to find the count of all substrings which have the same character at the beginning and end.
+
+Example 1:
+
+Input: s = "abcab"
+Output: 7
+Explanation: a, abca, b, bcab, 
+c, a and b
+Example 2:
+
+Input: s = "aba"
+Output: 4
+Explanation: a, b, a and aba'''
+
+USE THE FORMULA N*N+1/2
+
+class Solution:
+	def countSubstringWithEqualEnds(self, s):
+		# code here
+		fre = [0] * 26
+
+        for char in s:
+            fre[ord(char) - ord('a')] += 1
+    
+        ans = 0
+    
+        for i in range(26):
+            ans += (fre[i] * (fre[i] + 1)) // 2
+    
+        return ans
